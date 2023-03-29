@@ -27,8 +27,8 @@ public class Temperature extends Reading {
      * @param value A valid temperature;
      * @param date A valid date;
      */
-    public Temperature(String value, String date, Tank tank) {
-        super(date, tank);
+    public Temperature(String value, String date, String time, Tank tank) {
+        super(date, time, tank);
         requireNonNull(value);
         checkArgument(isValidTemperature(value), MESSAGE_CONSTRAINTS);
         this.value = Integer.parseInt(value);

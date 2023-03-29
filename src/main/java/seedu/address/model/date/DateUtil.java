@@ -1,6 +1,7 @@
 package seedu.address.model.date;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import seedu.address.model.fish.FeedingInterval;
@@ -21,6 +22,11 @@ public class DateUtil {
     public static final String VALID_NAME_FORMAT = "dd LLL yyyy";
 
     /**
+     * Format of date time in Fish Ahoy!
+     */
+    public static final String TIME_FORMAT = "HH:mm";
+
+    /**
      * Parses a string date  format in {@code DATE_FORMAT}
      * @param date Date in {@code String} form
      * @return {@code LocalDate} instance from given String
@@ -30,6 +36,18 @@ public class DateUtil {
         LocalDate localDate = LocalDate.parse(date, formatter);
         return localDate;
     }
+
+    /**
+     * Parses a string time format in {@code TIME_FORMAT}
+     * @param time Time in {@code String} form
+     * @return {@code LocalDateTime} instance from given String
+     */
+    public static LocalDateTime parseStringToTime(String time) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(TIME_FORMAT);
+        LocalDateTime localTime = LocalDateTime.parse(time, formatter);
+        return localTime;
+    }
+
 
     /**
      * Parses a feeding interval in the format \days\d\hours\h to return the days d
@@ -75,5 +93,15 @@ public class DateUtil {
     public static String getTaskDescriptionDateFormat(LocalDate date) {
         DateTimeFormatter outputFormat = DateTimeFormatter.ofPattern(VALID_NAME_FORMAT);
         return date.format(outputFormat);
+    }
+
+    /**
+     * Returns a String that is a valid Task description
+     * @param time LocalDateTime to be formated
+     * @return Formatted string that is alphanumeric
+     */
+    public static String getTimeFormat(LocalDateTime time) {
+        DateTimeFormatter outputFormat = DateTimeFormatter.ofPattern(TIME_FORMAT);
+        return time.format(outputFormat);
     }
 }

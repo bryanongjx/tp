@@ -27,8 +27,8 @@ public class PH extends Reading {
      * @param value A valid PH;
      * @param date A valid date;
      */
-    public PH(String value, String date, Tank tank) {
-        super(date, tank);
+    public PH(String value, String date, String time, Tank tank) {
+        super(date, time, tank);
         requireNonNull(value);
         checkArgument(isValidPH(value), MESSAGE_CONSTRAINTS);
         this.value = Integer.parseInt(value);

@@ -27,8 +27,8 @@ public class AmmoniaLevel extends Reading {
      * @param value A valid AmmoniaLevel;
      * @param date A valid date;
      */
-    public AmmoniaLevel(String value, String date, Tank tank) {
-        super(date, tank);
+    public AmmoniaLevel(String value, String date, String time, Tank tank) {
+        super(date, time, tank);
         requireNonNull(value);
         checkArgument(isValidAmmoniaLevel(value), MESSAGE_CONSTRAINTS);
         this.value = Integer.parseInt(value);
