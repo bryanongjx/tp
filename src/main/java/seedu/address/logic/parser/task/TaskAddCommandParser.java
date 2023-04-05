@@ -41,7 +41,7 @@ public class TaskAddCommandParser {
         }
         //tanks are optional. If no tank, index = -1 fromZeroBased
         Index index = getTankIndex(argMultimap);
-        Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).get());
+        Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).get().replaceAll("\\s+", " ").trim());
         Priority priority = getPriority(argMultimap);
 
         //if user did not input a tank index, Task will have null for tank
